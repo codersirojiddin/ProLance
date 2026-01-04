@@ -1,0 +1,223 @@
+.parent {
+    width: 95%;
+    height: 400px;
+    box-shadow: 10px 10px 10px 10px #aeaec0;
+    border-radius: 15px;
+    justify-self: center;
+}
+
+.intro {
+    font-size: xx-large;
+    margin-top: 20px;
+    font-weight: 500;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    /* Logo chapga, buttonlar o'ngga */
+    align-items: center;
+    padding: 15px 40px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2d3436;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+    /* Tugmalar orasidagi masofa */
+}
+
+.btn {
+    padding: 8px 18px;
+    cursor: pointer;
+    box-shadow: 7px 7px 7px #aeaec0;
+    border: 1px solid #aeaec0;
+    background-color: transparent;
+    color: #000000;
+    border-radius: 15px;
+    font-weight: 600;
+    transition: all 0.05s ease;
+    font-family: monospace;
+}
+
+/* Tugma ustiga borganda effekt */
+.btn:active {
+    box-shadow: 2px 2px 2px #aeaec0;
+}
+
+.home-info {
+    width: 100%;
+    height: fit-content;
+    height: 100px;
+    margin: 0 0;
+}
+
+.home-footer {
+    margin: 0 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-size: large;
+    font-family: monospace;
+    font-weight: 500;
+    text-align: center;
+    margin: 0 0;
+}
+
+.btn-home-footer {
+    font-family: monospace;
+    padding: 8px 18px;
+    border: 1px solid #aeaec0;
+    border-radius: 15px;
+    box-shadow: 7px 7px 7px #aeaec0;
+    cursor: pointer;
+    background-color: white;
+}
+
+.btn-home-footer:active {
+    box-shadow: 3px 3px 3px #aeaec0;
+}
+
+/* --- Reveal Animatsiyasi --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Elementlar birin-ketin chiqishi uchun kechikish (ixtiyoriy) */
+.home-info.active {
+    transition-delay: 0.2s;
+}
+
+.home-footer.active {
+    transition-delay: 0.4s;
+}
+
+/* --- services section --- */
+/* Sizning mavjud stillaringizga qo'shimcha va tahrirlar */
+
+.services-parent {
+    padding: 50px 0;
+    background-color: #fcfcfc;
+}
+
+.services-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Asosiy konteyner ustun shaklida */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Qatorlar mantiqi: 3 tadan elementni bitta flex qatorga olamiz */
+.services-row {
+    display: flex;
+    gap: 20px;
+    height: 380px; /* Kompyuterda bir xil balandlik */
+    transition: all 0.5s ease;
+}
+
+.service-card {
+    flex: 1; 
+    background: white;
+    border: 1px solid #aeaec0;
+    border-radius: 25px;
+    box-shadow: 7px 7px 15px rgba(174, 174, 192, 0.4);
+    padding: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+/* KATTALASHISH EFFEKTI */
+.service-card.active {
+    flex: 6; /* 3 ta element orasida juda katta joy oladi */
+    background: #ffffff;
+    cursor: default;
+    z-index: 10;
+}
+
+.service-card .icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-family: monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #2d3436;
+}
+
+/* Batafsil ma'lumot stili */
+.detailed-info {
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    margin-top: 10px;
+}
+
+.service-card.active .detailed-info {
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px; /* Ma'lumot sig'ishi uchun */
+    transform: translateY(0);
+}
+
+.service-card.active .short-desc {
+    display: none; /* Kichik ma'lumot yo'qoladi */
+}
+
+/* 📱 MOBILE RESPONSIVE (Telefondagi ko'rinishi) */
+@media (max-width: 850px) {
+    .services-row {
+        flex-direction: column; /* Yonma-yon emas, ustma-ust */
+        height: auto; /* Balandlik cheklovi olib tashlanadi */
+    }
+
+    .service-card {
+        flex: none;
+        width: 100%;
+        min-height: 200px;
+        margin-bottom: 15px;
+    }
+
+    .service-card.active {
+        min-height: 400px; /* Telefondagi kengaygan holati */
+    }
+    
+    .parent {
+        height: auto;
+        padding-bottom: 30px;
+    }
+}

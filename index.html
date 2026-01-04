@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prolance - Nanotechnology</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="parent">
+        <header class="navbar reveal">
+            <div class="logo">Prolance</div>
+            <div class="nav-buttons">
+                <button type="button" class="btn">Home</button>
+                <button type="button" class="btn">Services</button>
+                <button type="button" class="btn">Projects</button>
+                <button type="button" class="btn">Contacts</button>
+            </div>
+        </header>
+
+        <div class="home-info reveal">
+            <p class="intro">Build your dreams with nano technologies</p>
+        </div>
+        <div class="home-info reveal">
+            <p>
+                As a $10 Trillion global leader, Prolance Engineering is redefining the future 
+                of humanity through atomic-scale precision and molecular innovation.
+            </p>
+        </div>
+
+        <div class="home-footer reveal">
+            <button class="btn-home-footer">Explore Research</button>
+        </div>
+    </div>
+
+    <div class="services-parent" id="services">
+        <section class="services-section reveal">
+            <h2 class="main-title">Global Nanotechnology Solutions</h2>
+            
+            <div class="services-container">
+                <div class="services-row">
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">🌌</div>
+                        <h3>Space Elevators</h3>
+                        <p class="short-desc">Carbon nanotube cables.</p>
+                        <div class="detailed-info">
+                            <p>We manufacture ultra-strong carbon nanotube fibers with a tensile strength of 100 GPa. This technology enables the construction of orbital elevators, reducing space travel costs by 99% and facilitating permanent lunar habitats.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">🧠</div>
+                        <h3>Neural Links</h3>
+                        <p class="short-desc">Brain-AI interfacing.</p>
+                        <div class="detailed-info">
+                            <p>Our molecular-scale electrodes provide high-bandwidth neural interfacing. This allows direct, seamless digital communication between the human brain and advanced AI, curing neurological disorders and enhancing cognition.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">⚛️</div>
+                        <h3>Quantum Chips</h3>
+                        <p class="short-desc">Atomic processors.</p>
+                        <div class="detailed-info">
+                            <p>By engineering stable qubits using silicon vacancies, we produce 1-million qubit quantum processors. These chips solve complex climate and chemical simulations in seconds that would take millennia for supercomputers.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-row">
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">🧬</div>
+                        <h3>Nanobots</h3>
+                        <p class="short-desc">Cellular repair bots.</p>
+                        <div class="detailed-info">
+                            <p>Programmable molecular robots designed to navigate the human bloodstream. They identify cancer cells with 100% accuracy and perform DNA-level repairs to reverse biological aging and eradicate hereditary diseases.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">🔋</div>
+                        <h3>Fusion Energy</h3>
+                        <p class="short-desc">Unlimited clean power.</p>
+                        <div class="detailed-info">
+                            <p>Using nano-structured superconductors, we’ve mastered plasma containment for portable fusion reactors. Our graphene batteries offer 100x the energy density of Lithium, powering cities for decades on a single charge.</p>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="expandCard(this)">
+                        <div class="icon">🛡️</div>
+                        <h3>Active Stealth</h3>
+                        <p class="short-desc">Molecular cloaking.</p>
+                        <div class="detailed-info">
+                            <p>Our metamaterial cloaking devices manipulate light and radar waves around objects. This provides complete optical invisibility for strategic infrastructure and advanced aerospace assets across all spectrums.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Sahifa yuklanganda elementlarni chiqarish (Reveal)
+        window.onload = () => {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(el => el.classList.add('active'));
+        };
+
+        // Kartochkani kengaytirish funksiyasi
+        function expandCard(selectedCard) {
+            const allCards = document.querySelectorAll('.service-card');
+            
+            // Agar bosilgani active bo'lsa - yopamiz, bo'lmasa - ochamiz
+            const isAlreadyActive = selectedCard.classList.contains('active');
+
+            // Barcha qatorlardagi active klasslarni tozalash
+            allCards.forEach(card => card.classList.remove('active'));
+
+            if (!isAlreadyActive) {
+                selectedCard.classList.add('active');
+                // Kengayganda ma'lumot ko'rinishi uchun silliq scroll
+                setTimeout(() => {
+                    selectedCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
